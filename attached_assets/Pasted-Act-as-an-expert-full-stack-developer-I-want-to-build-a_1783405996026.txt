@@ -1,0 +1,28 @@
+Act as an expert full-stack developer. I want to build a complete Expense Tracker application using the MERN stack (MongoDB, Express.js, React.js, Node.js) inside a single Replit workspace. 
+
+The application must be architected so that it can be effortlessly deployed to Render.com later. Follow these absolute constraints for Replit and Render compatibility:
+
+1. MONOLITHIC / MONOREPO STRUCTURE:
+- Create a root folder with a backend (Node.js/Express) and a frontend folder (React.js using Vite).
+- In the root package.json, include a build script to build the frontend and a start script to run the backend, serving the static frontend files from the 'dist' folder. This is required for Render's single Web Service deployment.
+
+2. ENVIRONMENT VARIABLES & PORT MANAGEMENT:
+- Use `process.env.PORT` in the backend. Do NOT hardcode port 5000. It must fallback to a dynamic port so Render and Replit can assign it automatically.
+- Use `process.env.MONGODB_URI` and `process.env.JWT_SECRET` for security.
+
+3. CORS & API ROUTING:
+- Set up CORS to allow requests from the React frontend in development.
+- For production (Render), configure the Express app to serve the React frontend 'dist' directory as static assets and route all non-API requests (`*`) to `index.html`.
+
+4. CORE FEATURES REQUIRED:
+- Authentication: JWT-based user login and registration with bcrypt password hashing.
+- Backend Mongoose Models: User and Transaction (type: income/expense, amount, category, description, date, user_id).
+- Frontend UI: Responsive Dashboard using Tailwind CSS. It must show Total Balance, Income, Expenses, and include interactive charts (Pie/Bar charts using Chart.js or Recharts).
+- CRUD Operations: Forms to add, edit, filter, and delete transactions.
+
+Please provide:
+1. The exact folder structure.
+2. The root 'package.json' configured for Render deployment.
+3. Complete backend code (`server.js`, models, routes, controllers).
+4. Complete frontend React components and state handling.
+5. Step-by-step instructions to run it on Replit and deploy it to Render.
